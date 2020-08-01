@@ -1,0 +1,59 @@
+.container__login {
+  width: 100%;
+  height: 100vh;
+  background: rgb(1, 27, 51);
+  background: linear-gradient(
+    135deg,
+    rgba(1, 27, 51, 1) 0%,
+    rgba(1, 27, 51, 1) 51%,
+    rgba(250, 250, 250, 1) 51%,
+    rgba(250, 250, 250, 1) 100%
+  );
+  color: $color-grey-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 4.7rem;
+
+  // @include respond(phone) {
+  //   background: $color-light-grey;
+  // }
+}
+
+.login__content {
+  flex: 0 0 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  background: $color-light-grey;
+  box-shadow: 0 2rem 2.5rem rgba(17, 17, 17, 0.32);
+  border-radius: 6px;
+  margin-top: 2rem;
+  @include respond(phone) {
+    flex: 0 0 85%;
+  }
+}
+
+.form__text {
+  font-size: 1.4rem;
+  color: $color-grey-dark;
+  width: calc(1rem + 23vw);
+}
+
+.form__login {
+  width: 96%;
+
+  @include respond(phone) {
+    width: 100%;
+  }
+}
+
+.logo__login {
+  height: 2.6rem;
+
+  &-box {
+    margin-bottom: 1.4rem;
+  }
+}

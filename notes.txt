@@ -1,0 +1,22 @@
+Users created by admin will have special status set to 1
+
+But main admin user will have level of 10 [for activation matching]
+
+Users must complete their profile before accessing parts of the platform [middleware]
+
+I'm sending scheduled tasks such as Deleting inactive users and blocking users for not payment under Jobs. App\Jobs. This is so the delay time can be sent for scheduled handling.
+
+Admin Blocking will not require scheduling.
+
+
+-- reminder
+
+Mature dates and schedules shoud be reset to follow normal conventions
+
+previous investment = 1.5 * balance
+
+notifications on every activation
+
+put timer in all the matchings
+
+confirmation when making withdrawals
