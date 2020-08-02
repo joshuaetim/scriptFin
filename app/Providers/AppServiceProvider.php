@@ -32,5 +32,11 @@ class AppServiceProvider extends ServiceProvider
                 return $value;
             });
         });
+
+        if(env('FORCE_HTTPS',false)) { 
+            URL::forceScheme('https');
+        }
+
+        Schema::defaultStringLength(191);
     }
 }
