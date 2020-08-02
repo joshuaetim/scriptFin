@@ -163,24 +163,24 @@
         </div>
         <h3>SCRIPT LOGIN DETAILS:</h3>
         <div class="works-content">
-          <p>Homepage: <a href="https://investdemo.herokuapp.com">https://investdemo.herokuapp.com </a></p>
+          <p>Homepage: <a target="_blank" target="_blank" href="https://investdemo.herokuapp.com">https://investdemo.herokuapp.com </a></p>
           <h4>Admin details</h4>
           <p>
-            Admin Dashboard: <a href="https://investdemo.herokuapp.com/admin">https://investdemo.herokuapp.com/admin </a>
+            Admin Dashboard: <a target="_blank" href="https://investdemo.herokuapp.com/admin">https://investdemo.herokuapp.com/admin </a>
           </p>
           <p>Email: admin@gmail.com</p>
           <p>Password: admin</p>
     
           <h4>Users details</h4>
           <p>
-            User Dashboard: <a href="https://investdemo.herokuapp.com/home">https://investdemo.herokuapp.com/home </a>
+            User Dashboard: <a target="_blank" href="https://investdemo.herokuapp.com/home">https://investdemo.herokuapp.com/home </a>
           </p>
           <p>Email: jimmy@gmail.com</p>
           <p>Password: password</p>
     
           <h4> Special User details</h4>
           <p>
-            User Dashboard: <a href="https://investdemo.herokuapp.com/home">https://investdemo.herokuapp.com/home </a>
+            User Dashboard: <a target="_blank" href="https://investdemo.herokuapp.com/home">https://investdemo.herokuapp.com/home </a>
           </p>
           <p>Email: paulolu@gmail.com</p>
           <p>Password: password</p>
