@@ -56,7 +56,7 @@ class LoginController extends Controller
 
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember')))
         {
-            return redirect()->intended('/admin');
+            return redirect('/admin');
         }
 
         session()->flash('status', 'Login Details Incorrect');
