@@ -268,6 +268,7 @@ class AdminController extends Controller
         $user->profile_complete = true;
         $user->active = true;
         $user->level = 10;
+        $user->special = true;
         $user->save();
 
         $user->userID = "USER".substr(time(), -3).$user->id;
