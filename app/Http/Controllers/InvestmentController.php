@@ -216,15 +216,17 @@ class InvestmentController extends Controller
 
         if(is_integer($amount/1000) && $amount >= 5000 && $amount<=200000)
         {
-            // check previous investment
-            if($previousInvestment->main_offered){
-                $previous = $previousInvestment->main_offered;
-                if($amount < $previous){
-                    session()->flash('error', 'Your investment must be equal to or greater than the previous investment');
-
-                    return redirect('/newInvestment');
+            if($previousInvestment){
+                if($previousInvestment->main_offered){
+                    $previous = $previousInvestment->main_offered;
+                    if($amount < $previous){
+                        session()->flash('error', 'Your investment must be equal to or greater than the previous investment');
+    
+                        return redirect('/newInvestment');
+                    }
                 }
             }
+            // check previous investment
 
             $investment = new Investment;
             $investment->uniqueID = "PRIME".substr(time(), -3).$user->id;
