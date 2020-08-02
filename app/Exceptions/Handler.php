@@ -58,6 +58,10 @@ class Handler extends ExceptionHandler
         if ($request->is('admin') || $request->is('admin/*')) {
             return redirect()->guest('/login/admin');
         }
+        else{
+            session()->flash('status', 'You need to login');
+            return redirect('/login');
+        }
         
         return redirect()->guest(route('login'));
     }
