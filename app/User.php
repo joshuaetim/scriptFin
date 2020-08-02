@@ -52,6 +52,7 @@ class User extends Authenticatable
             ['active', 1],
             ['blocked', 0]
         ])->get();
+        
 
         return $allUsers;
     }
