@@ -13,7 +13,7 @@ class PaymentLogController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('checkProfile');
-        $this->middleware('checkActive');
+        $this->middleware('checkActive')->except(['store']);
     }
     
     public function download($download)

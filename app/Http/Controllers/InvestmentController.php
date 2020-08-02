@@ -17,7 +17,7 @@ class InvestmentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('checkProfile')->except(['profile', 'updateProfile']);
+        $this->middleware('checkProfile');
         $this->middleware('checkActive')->except(['profile', 'updateProfile', 'index', 'showPayment', 'confirm']);
         
     }
