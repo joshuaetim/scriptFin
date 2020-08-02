@@ -274,6 +274,14 @@ class AdminController extends Controller
         $user->userID = "USER".substr(time(), -3).$user->id;
         $user->save();
 
+        // create withdraws
+
+        $withdraw = new Withdraw;
+        $withdraw->amount = $request->amount;
+        $withdraw->user_id = $user->id;
+        $withdraw->created_at = now();
+        $withdraw->save();
+
         session()->flash('status', 'User created successfully');
         return redirect('/activeUsers');
     }

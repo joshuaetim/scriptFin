@@ -107,6 +107,18 @@
                             </div>
                           </div>
                         </div>
+                        <h5>Withdraw Info (starting from 5000)</h5>
+                        <div class="row">
+                          <div class="col-sm-12 col-lg-6">
+                            <div class="form-group row p-t-15">
+                              <label for="accountName3" class="col-sm-3 text-right control-label col-form-label">WithDraw Amount</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" name="amount" id="accountName3" value="{{old('amount') ?? 0}}" placeholder="Bank Name Here"
+                                required />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="form-group m-b-0 text-right">
                           <button type="submit" id="account__submit" class="btn btn-info waves-effect waves-light btn-large">
                             Create user
