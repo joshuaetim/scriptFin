@@ -141,7 +141,8 @@ class AdminController extends Controller
             $mergedWithdraws = $withdrawObject->getMergedWithdraws();
         }
         else{
-            return redirect('/home');
+            session()->flash('status', 'No merged withdraws yet');
+            return redirect('/admin');
         }
 
         // return $mergedWithdraws;
