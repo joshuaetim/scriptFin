@@ -110,8 +110,14 @@ Route::middleware('auth:admin')->group(function() {
     Route::get('/merged', 'AdminController@showMergedWithdrawals');
     Route::get('/manualMerge', 'AdminController@manualMerge');
     Route::get('/adminReferral', 'AdminController@referral');
+    Route::get('/blockedUsers', 'AdminController@showBlockedUsers');
+    Route::get('/createUser', 'AdminController@createUser');
 
 
+    Route::post('/storeUser', 'AdminController@storeUser')->name('storeUser');
+    Route::post('/deleteUser', 'AdminController@deleteUser');
+    Route::post('/blockUser', 'AdminController@blockUser');
+    Route::post('/unblockUser', 'AdminController@unblockUser');
     Route::post('/replySupport', 'SupportController@replySupport');
     Route::post('/replyComplain', 'ComplainController@replyComplain');
     Route::post('/mergeManually', 'AdminController@mergeManually')->name('merge');

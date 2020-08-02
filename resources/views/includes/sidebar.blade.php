@@ -80,16 +80,6 @@
               aria-expanded="false"><i class="mdi mdi-comment-text"></i><span class="hide-menu">Complaints</span></a>
           </li>
 
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="user-paymentslogs.html"
-              aria-expanded="false"><i class="fas fa-credit-card"></i><span class="hide-menu">Payments Logs</span></a>
-          </li>
-
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="user-activity.html"
-              aria-expanded="false"><i class="fas fa-database"></i><span class="hide-menu">Activity</span></a>
-          </li>
-
           <li class="nav-small-cap">
             <i class="mdi mdi-dots-horizontal"></i>
             <span class="hide-menu">Logout Account</span>

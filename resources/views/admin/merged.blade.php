@@ -34,6 +34,9 @@
                                     <div class="modal-body">
                                         <h3>User Information</h3>
                                         <p style="font-size: 16px">
+                                            @if (getUser($withdraw->payer)->special)
+                                                <b>Special User</b><br>
+                                            @endif
                                             Fullname: {{getUser($withdraw->payer)->name}}<br>
                                             Account Name: {{getUser($withdraw->payer)->account_name}}<br>
                                             Account Balance: {{getUser($withdraw->payer)->balance}}<br>
@@ -61,6 +64,9 @@
                                     <div class="modal-body">
                                         <h3>User Information</h3>
                                         <p style="font-size: 16px">
+                                            @if (getUser($withdraw->payer)->special)
+                                                <b>Special User</b><br>
+                                            @endif
                                             Fullname: {{getUser($withdraw->user_id)->name}}<br>
                                             Account Name: {{getUser($withdraw->user_id)->account_name}}<br>
                                             Account Balance: {{getUser($withdraw->user_id)->balance}}<br>

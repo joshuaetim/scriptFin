@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ReferralController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('checkProfile');
+        $this->middleware('checkActive');
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -56,6 +56,16 @@ class User extends Authenticatable
         return $allUsers;
     }
 
+    public function getBlockedUsers()
+    {
+        $allUsers = User::where([
+            ['active', 1],
+            ['blocked', 1]
+        ])->get();
+
+        return $allUsers;
+    }
+
     public function getTotalPendingPayouts()
     {
         $allUsers = User::all();

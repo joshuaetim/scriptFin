@@ -10,6 +10,7 @@ use App\Investment;
 use App\Classes\Match;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -133,7 +134,15 @@ class AdminController extends Controller
     public function showMergedWithdrawals()
     {
         $withdrawObject = new Withdraw;
-        $mergedWithdraws = $withdrawObject->getMergedWithdraws();
+        $mergedWithdraws = null;
+
+        // return $withdrawObject->getMergedWithdraws()->count();
+        if($withdrawObject->getMergedWithdraws()->count()){
+            $mergedWithdraws = $withdrawObject->getMergedWithdraws();
+        }
+        else{
+            return redirect('/home');
+        }
 
         // return $mergedWithdraws;
 
@@ -188,6 +197,86 @@ class AdminController extends Controller
         session()->flash('status', 'Users successfully merged');
         return back();
     }
+
+    public function blockUser(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
+        $user->blocked = true;
+        $user->save();
+
+        session()->flash('status', 'User succesfully blocked');
+        return back();
+    }
+
+    public function deleteUser(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
+        $user->delete();
+
+        session()->flash('status', 'User succesfully deleted');
+        return back();
+    }
+
+    public function showBlockedUsers()
+    {
+        $userObject = new User;
+        $blockedUsers = $userObject->getBlockedUsers();
+
+        return view('admin.blockedUsers', [
+            'users' => $blockedUsers,
+            'title' => 'Active Users'
+        ]);
+    }
+
+    public function unblockUser(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
+        $user->blocked = false;
+        $user->save();
+
+        session()->flash('status', 'User succesfully unblocked');
+        return back();
+    }
+
+    public function createUser()
+    {
+        // create User
+        return view('admin.createUser', [
+            'title' => 'Create User',
+        ]);
+    }
+
+    public function storeUser(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users,email',
+            'bank_name' => 'required',
+            'password' => 'required|confirmed',
+            'account_number' => 'required|min:10|numeric',
+            'account_name' => 'required',
+            'phone' => 'required'
+        ]);
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->bank_name = $request->bank_name;
+        $user->account_number = $request->account_number;
+        $user->account_name = $request->account_name;
+        $user->phone = $request->phone;
+        $user->profile_complete = true;
+        $user->active = true;
+        $user->level = 10;
+        $user->save();
+
+        $user->userID = "USER".substr(time(), -3).$user->id;
+        $user->save();
+
+        session()->flash('status', 'User created successfully');
+        return redirect('/activeUsers');
+    }
+    
 
     public function referrals()
     {

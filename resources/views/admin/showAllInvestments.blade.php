@@ -36,6 +36,9 @@
                                 <div class="modal-body">
                                     <h3>User Information</h3>
                                     <p style="font-size: 16px">
+                                      @if (getUser($investment->user_id)->special)
+                                                <b>Special User</b><br>
+                                      @endif
                                         Fullname: {{getUser($investment->user_id)->name}}<br>
                                         Account Name: {{getUser($investment->user_id)->account_name}}<br>
                                         Account Balance: {{getUser($investment->user_id)->balance}}<br>

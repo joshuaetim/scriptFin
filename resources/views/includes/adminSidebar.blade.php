@@ -48,9 +48,14 @@
                   href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple-plus"></i><span
                     class="hide-menu">Users</span></a>
                 <ul aria-expanded="false" class="collapse  first-level">
+                  
+                  <li class="sidebar-item"><a href="{{url('/createUser')}}" class="sidebar-link"><i class="mdi mdi-account-plus">
+                  </i><span class="hide-menu"> Create Special Users </span></a></li>
+
                   <li class="sidebar-item"><a href="{{url('/activeUsers')}}" class="sidebar-link"><i class="mdi mdi-call-merge">
                       </i><span class="hide-menu"> Active Users </span></a></li>
-                  <li class="sidebar-item"><a href="blocked-users.html" class="sidebar-link"><i
+
+                  <li class="sidebar-item"><a href="{{url('/blockedUsers')}}" class="sidebar-link"><i
                         class="fas fa-ban"></i><span class="hide-menu"> Blocked Users</span></a></li>
   
                 </ul>

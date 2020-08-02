@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Storage;
 
 class PaymentLogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('checkProfile');
+        $this->middleware('checkActive');
+    }
+    
     public function download($download)
     {
         return Storage::download('public/images/'.$download);

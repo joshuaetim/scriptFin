@@ -38,7 +38,6 @@
             class="form__input"
             id="pass"
             name="password"
-            value="password"
             required
           />
           <label for="pass" class="form__label">Password *</label>

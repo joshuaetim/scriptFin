@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title"><a href="{{url('/admin')}}">Dashboard</a> / Active Users</h4>
+                <h4 class="card-title"><a href="{{url('/admin')}}">Dashboard</a> / Blocked Users</h4>
 
                 
                 <div class="table-responsive">
@@ -26,36 +26,36 @@
                         @foreach ($users as $user)
                             <tr data-row-id="{{$user->id}}">
                                 <td><a href="#" data-toggle="modal"
-                                  data-target="#responsive-modalUser{{$user->id}}" title="click to view details">{{$user->userID}}</a></td>
-                                <!-- modal content for user info -->
-                            <div id="responsive-modalUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                              aria-hidden="true" style="display: none;">
-                              <div class="modal-dialog">
-                              <div class="modal-content">
-                                  <div class="modal-body">
-                                      <h3>User Information</h3>
-                                      <p style="font-size: 16px">
-                                          @if ($user->special)
-                                                <b>Special User</b> <br>
-                                          @endif
-                                          Fullname: {{$user->name}}<br>
-                                          Account Name: {{$user->account_name}}<br>
-                                          Email: {{$user->email}} <br>
-                                          Phone: {{$user->phone}} <br>
-                                          Account Balance: {{$user->balance}}<br>
-                                          Pending Payout: {{$user->pending_payout}}<br>
-                                          Referral Balance: {{$user->referral_balance}}<br>
-                                          Registration Date: {{$user->created_at->format("F j, Y")}}<br>
-                                      </p>
-                                  </div>
-                                  <div class="modal-footer">
-                                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-      
-                                          </div>
-                                      </div>
-                                      </div>
-                                  </div>
-                          <!-- /.modal -->
+                                    data-target="#responsive-modalUser{{$user->id}}" title="click to view details">{{$user->userID}}</a></td>
+                                  <!-- modal content for user info -->
+                              <div id="responsive-modalUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <h3>User Information</h3>
+                                        <p style="font-size: 16px">
+                                            @if ($user->special)
+                                                <b>Special User</b><br>
+                                            @endif
+                                            Fullname: {{$user->name}}<br>
+                                            Account Name: {{$user->account_name}}<br>
+                                            Email: {{$user->email}} <br>
+                                            Phone: {{$user->phone}} <br>
+                                            Account Balance: {{$user->balance}}<br>
+                                            Pending Payout: {{$user->pending_payout}}<br>
+                                            Referral Balance: {{$user->referral_balance}}<br>
+                                            Registration Date: {{$user->created_at->format("F j, Y")}}<br>
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+        
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                            <!-- /.modal -->
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->phone}}</td>
@@ -63,10 +63,10 @@
                                 <td>{{$user->created_at->format("F j, Y g:i a")}}</td>
                                 <td>
                                   <a class="remove-row pull-right" href="#" onclick="document.getElementById('block{{$user->id}}').submit()"><i
-                                    class="fas fa-ban" title="Block User"></i></a>
+                                    class="fas fa-check" title="UnBlock User"></i></a>
                                     <a class="remove-row pull-right ml-3" href="#" title="Delete User" onclick="event.preventDefault(); document.getElementById('delete{{$user->id}}').submit();"><i
                                         class="fas fa-trash"></i></a>
-                                        <form action="{{url('/blockUser')}}" method="POST" id="block{{$user->id}}" style="display: none;">
+                                        <form action="{{url('/unblockUser')}}" method="POST" id="block{{$user->id}}" style="display: none;">
                                           @csrf
                                           <input type="hidden" name="user_id" value="{{$user->id}}">
                                         </form>

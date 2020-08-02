@@ -16,6 +16,10 @@ class CheckActive
      */
     public function handle($request, Closure $next)
     {
+        if((Auth::check() && Auth::user()->blocked)){
+            session()->flash('error', 'You have been blocked from this platform. Contact support for more info');
+            return redirect('/home');
+        }
         if(!(Auth::check() && Auth::user()->active)){
             session()->flash('status', 'You have to activate your profile');
             return redirect('/home');
