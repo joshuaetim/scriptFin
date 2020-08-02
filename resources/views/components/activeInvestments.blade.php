@@ -11,6 +11,9 @@
                                 Amount Offered: {{$investment->main_offered}}
                             </p>
                             <p class="card-text" style="font-size: 15px; font-weight: bold">
+                                Mature Date: {{getCarbonInstance($investment->mature_date)->format("F j, Y g:i a")}}
+                            </p>
+                            <p class="card-text" style="font-size: 15px; font-weight: bold">
                                 Expected Yield: {{$investment->yield}}
                             </p>
                             <a href="{{url('/withdraw/'.$investment->id)}}" class="btn btn-success">Withdraw Investment</a>

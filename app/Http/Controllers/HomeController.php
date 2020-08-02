@@ -87,7 +87,7 @@ class HomeController extends Controller
 
                 $investment = Investment::find($investment->id);
 
-                $date = Carbon::now()->addMinutes(1);
+                $date = Carbon::now()->addHours(24);
 
                 DeleteInactiveUsers::dispatch($user, $investment, $receiver)->delay($date);
             }

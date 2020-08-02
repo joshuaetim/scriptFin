@@ -39,16 +39,12 @@ class PlayController extends Controller
 
     public function play()
     {
-        $investment = Investment::find(6);
-        $amount = getTotalWithdrawAmount($investment);
-        if($amount){
-            if($amount == $investment->main_offered)
-            {
-                return 'Total match';
-            }
+        $investment = Investment::find(3);
+        if($investment->mature_date > now()){
+            return 'Not mature';
         }
         else{
-            return 'bad';
+            return 'Mature';
         }
     }
 

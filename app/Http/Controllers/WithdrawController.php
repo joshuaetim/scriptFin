@@ -197,6 +197,14 @@ class WithdrawController extends Controller
             return redirect('/home');
         } // check if more investment is needed
 
+        if(now() < $investment->mature_date)
+        {
+            session()->flash('error', 'You have to wait for your investment mature date to withdraw');
+            return redirect('/home');
+        }
+
+        // check withdraw time
+
         $withdraw = new Withdraw;
         $withdraw->user_id = $user->id;
         $withdraw->amount = $investment->yield;
