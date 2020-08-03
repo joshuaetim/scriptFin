@@ -233,10 +233,12 @@ class InvestmentController extends Controller
             $investment->user_id = auth()->user()->id;
             $investment->amount_offered = $amount;
             $investment->main_offered = $amount;
-            $matureDays = 7;
+            $matureDays = 5;
             if($user->level <= 1)
             {
                 $matureDays = 3;
+                $user->level++;
+                $user->save();
             }
             $investment->mature_date = now()->addDays($matureDays);
             $investment->yield = $amount + ((50/100) * $amount);
